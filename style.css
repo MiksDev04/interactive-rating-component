@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+   margin: 0;
+   padding: 0;
+   font-family: Overpass;
+}
+
+*, *::before, *::after{
+   box-sizing: border-box;
+}
+
+:root{
+    /* ### Primary */
+    --Orange: #fb7413;
+
+    /* ### Neutral */
+    --White: #ffffff; --Light-Grey: #959eac;
+    --Dark-Blue: #252d37; --Very-Dark-Blue: #121417;
+
+    /* fs */
+    --fs-h1: 2rem; --fs-p: 17px;
+
+    /* font weight */
+    --fw400: 400; --fw700: 700;
+}
+
+body{
+   background-color: var(--Very-Dark-Blue);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100dvh;
+}
+
+.wrapper{
+    background-color: var(--Dark-Blue);
+    display: grid;
+    width: clamp(320px, 90%, 450px);
+    border-radius: 2rem;
+    padding: 2rem;  
+    gap: 1.5rem;
+}
+.star-wrapper{
+    justify-self: flex-start;
+    --star-bg:#2c3846;
+    display: grid;
+    place-items: center;
+    padding: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--star-bg);
+}
+.star-wrapper svg{
+    transform: scale(1.3);
+}
+
+.content{
+    display: grid;
+    gap: .5rem;
+}
+.content h1{
+    margin-top: 1rem;
+    font-weight: var(--fw700);
+    color: var(--White);
+    font-size: var(--fs-h1);
+}
+.content p{
+    color: var(--Light-Grey);
+    font-weight: var(--fw400);
+    font-size: var(--fs-p);
+    line-height: 25px;
+}
+
+.num-container{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+}
+.num-container input{
+    display: none;
+}
+.num-container .num{
+    --num-bg:#2d3743;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--num-bg);
+    color: var(--Light-Grey);
+    border-radius: 50%;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    font-size: var(--fs-p);
+    font-weight: var(--fw700);
+    transition: .3s ease-in-out;
+}
+.num-container .num:hover{
+    background-color: var(--Orange);
+    color: var(--Very-Dark-Blue);
+}
+.num-container input:checked + .num{
+    background-color: var(--White);
+    color: var(--Very-Dark-Blue);
+}
+
+main .button{
+    padding: .75rem;
+    border-radius: 2rem;
+    background-color: var(--Orange);
+    font-weight: var(--fw700);
+    font-size: 1.2rem;
+    color: var(--Very-Dark-Blue);
+    border: none;
+    margin-top: .5rem;
+}
+main .button:active{
+    background-color: var(--White);
+}
+
+/* thank-you message */
+dialog{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--Dark-Blue);
+    width: clamp(320px, 100%, 450px);
+    border-radius: 2rem;
+    gap: 1.5rem;
+    z-index: 111;
+    padding: 3rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+dialog::backdrop{
+    background: transparent;
+}
+.img-container{
+    content: url('./images/illustration-thank-you.svg');
+}
+.rate-message{
+    --rate-bg: #29333f;
+    color: var(--Orange);
+    text-shadow: var(--Orange);
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    background-color: var(--rate-bg);
+}
+.message-wrapper{
+    display: grid;
+    gap: .5rem;
+}
+.message-wrapper h1{
+    color: var(--White);
+    font-weight: var(--fw700);
+    font-size: var(--fs-h1);
+}
+.message-wrapper p{
+    color: var(--Light-Grey);
+    font-weight: var(--fw400);
+    font-size: var(--fs-p);
+}
+
+
+@media (max-width: 500px) {
+    :root{
+        /* fs */
+        --fs-h1: 2rem; --fs-p: 14px;
+    
+        /* font weight */
+    }
+    .wrapper{
+        border-radius: 20px;
+        padding: 1.5rem;
+    }
+}
